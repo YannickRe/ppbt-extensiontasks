@@ -1,0 +1,40 @@
+{
+    "id": "5d836837-8e10-4566-94ec-daf058f3974a",
+    "name": "PPBTExtSetConnectionVariables",
+    "friendlyName": "Power Platform Ext. - Connection Vars",
+    "description": "Sets PPBTExt.* variables to provide custom script tasks access to use the Service Connection as a single source of truth.",
+    "author": "Yannick Reekmans",
+    "category": "Utility",
+    "visibility": [
+        "Build", 
+        "Release"
+    ],
+    "demands": [
+        "PowerPlatformTool"
+    ],
+    "version": {
+        "Major": "{{major}}",
+        "Minor": "{{minor}}",
+        "Patch": "{{patch}}"
+    },
+    "preview": false,
+    "minimumAgentVersion": "1.95.0",
+    "instanceNameFormat": "Power Platform Extensions - Set Connection Variables",
+    "inputs": [
+        {
+            "name": "PowerPlatformSPN",
+            "type": "connectedService:powerplatform-spn",
+            "label": "Service connection",
+            "required": true,
+            "helpMarkDown": "Authenticate with your Power Platform environment with Workload Identity Federation or an Azure AppID, tenantID and client secret."
+        }    
+    ],    
+    "execution": {
+        "Node20_1": {
+            "target": "index.js"
+        },
+        "Node16": {
+            "target": "index.js"
+        }
+    }
+}

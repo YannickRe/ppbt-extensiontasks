@@ -1,0 +1,59 @@
+{
+    "manifestVersion": 1,
+    "id": "PPBT-ExtensionTasks",
+    "publisher": "Yannick Reekmans",
+    "version": "{{version}}",
+    "name": "Extension tasks for Power Platform Build Tools",
+    "description": "This extension adds additional tasks to Azure DevOps for Power Platform Build Tools.",
+    "categories": ["Azure Pipelines"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+        "repository": {
+        "type": "git",
+        "uri": "https://github.com/microsoft/powerplatform-build-tools"
+    },
+    "public": false,
+    "galleryFlags": [],
+    "tags": ["Power Platform", "Dynamics 365", "Dynamics CRM", "Dynamics", "CRM"],
+    "branding": {
+        "color": "rgb(11, 11, 11)",
+        "theme": "dark"
+    },
+    "icons": {
+        "default": "assets/images/PPBTExtensions.png"
+    },
+    "screenshots": [
+        {
+        "path": "assets/images/sample-pipeline.png"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "contributions": [
+        {
+            "id": "ppbtext-setconnectionvariables",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/ppbtext-setconnectionvariables"
+            }
+        }
+    ],
+    "files": [
+        {
+        "path": "assets/images",
+            "addressable": true
+        },
+        {
+            "path": "tasks"
+        }
+    ]
+}
