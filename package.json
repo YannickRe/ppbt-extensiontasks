@@ -14,7 +14,7 @@
     "clean:build": "npm run clean && npm run build",
     "tslint": "tslint --project tsconfig.json --config tslint.json",
     "tslint:fix": "tslint --project tsconfig.json --fix --config tslint.json",
-    "package": "npm run set-env && cd dist/$BUILD_ENV && tfx extension create --manifest-globs extension-manifest.json --output-path extension.vsix --publisher $DEV_PUBLISHER && cd ../..",
+    "package": "npm run set-env && cd dist/$BUILD_ENV && tfx extension create --manifest-globs extension-manifest.json --output-path extension.vsix --publisher $DEV_PUBLISHER && cd ../.."
   },
   "author": "Yannick Reekmans",
   "license": "MIT",
