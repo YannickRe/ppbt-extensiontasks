@@ -14,8 +14,6 @@ export async function main(): Promise<void> {
     const authorization = tl.getEndpointAuthorization(endpointName, false);
     const environmentUrl = tl.getEndpointUrl(endpointName, false);
 
-    tl.setVariable('PPBTExt.ApplicationId', authorization.parameters.serviceprincipalid, false, false);
-    tl.setVariable('PPBTExt.TenantId', authorization.parameters.tenantid, false, false);
     tl.setVariable('PPBTExt.EnvironmentUrl', environmentUrl, false, false);
 
     tl.debug("Auth Scheme: " + authorization.scheme);
@@ -35,7 +33,11 @@ export async function main(): Promise<void> {
 
         const tokenRequestUrl = `${uri}${projectId}/_apis/distributedtask/hubs/${hub}/plans/${planId}/jobs/${jobId}/oidctoken?serviceConnectionId=${serviceConnectionId}&api-version=${oidcApiVersion}`;
         tl.setVariable('PPBTExt.OidcRequestUri', tokenRequestUrl, false, false);
+        tl.setVariable('PPBTExt.ApplicationId', authorization.parameters.serviceprincipalid, false, false);
+        tl.setVariable('PPBTExt.TenantId', authorization.parameters.tenantid, false, false);
     } else {
+        tl.setVariable('PPBTExt.ApplicationId', authorization.parameters.applicationId, false, false);
+        tl.setVariable('PPBTExt.TenantId', authorization.parameters.tenantId, false, false);
         tl.setVariable('PPBTExt.ClientSecret', authorization.parameters.clientSecret, true, false);
     }
 }
